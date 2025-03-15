@@ -149,6 +149,7 @@ class PPO_continuous():
                 dist = self.actor.get_dist(s)
                 a = dist.sample()  # Sample the action according to the probability distribution
                 a = torch.clamp(a, -self.max_action, self.max_action)  # [-max,max]
+                # a = torch.clamp(a, 1, self.max_action)
                 a_logprob = dist.log_prob(a)  # The log probability density of the action
         return a.numpy().flatten(), a_logprob.numpy().flatten()
 

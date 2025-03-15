@@ -68,7 +68,7 @@ def main(args):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser("Hyperparameters Setting for PPO-continuous")
     parser.add_argument('--max_steps', default=500, type=int)
-    parser.add_argument("--train_steps", type=int, default=int(700), help=" Maximum number of training steps")
+    parser.add_argument("--train_steps", type=int, default=int(2000), help=" Maximum number of training steps")
     parser.add_argument("--evaluate_freq", type=int, default=int(500), help="Evaluate the policy every 'evaluate_freq' steps")
     parser.add_argument("--save_freq", type=int, default=20, help="Save frequency")
     parser.add_argument("--policy_dist", type=str, default="Gaussian", help="Beta or Gaussian")

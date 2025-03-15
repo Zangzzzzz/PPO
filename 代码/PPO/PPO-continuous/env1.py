@@ -44,10 +44,9 @@ class Maze(tk.Tk, object):
         m = [0] * 10
         channel_allocation = action[0:5]
         power_allocation = action[5:10]
-        total_allocated_power = np.sum(power_allocation)
-        scaling_factor = min(total_power / total_allocated_power, 1.0)
-        scaled_power_allocation = power_allocation * scaling_factor
-
+        total_allocated_power = np.sum(np.abs(power_allocation))
+        scaling_factor = total_power / total_allocated_power
+        scaled_power_allocation = np.abs(power_allocation) * scaling_factor
         m[:5] = channel_allocation
         m[5:] = scaled_power_allocation
         # 存储每个小区的需求和提供量
